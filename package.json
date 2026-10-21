@@ -1,0 +1,28 @@
+{
+  "name": "project_devweb_2026-2-imt",
+  "version": "1.0.0",
+  "description": "Projeto da matéria Desenvolvimento Web - Segundo semestre de Ciência da Computação - Instituto Mauá de Tecnologia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguellReny/project_DevWeb_2026-2-IMT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MiguellReny/project_DevWeb_2026-2-IMT/issues"
+  },
+  "homepage": "https://github.com/MiguellReny/project_DevWeb_2026-2-IMT#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
