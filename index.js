@@ -24,5 +24,20 @@ app.get ('/filmes', (req, res) => {
     res.json(filmes)
 })
 
+//POST - http://localhost:3000/filmes
+app.post ('/filmes', (req, res) => {
+    //pega o que o usuario digita
+    let titulo = req.body.titulo;
+    let sinopse = req.body.sinopse;
+    //monta o JSON
+    let filme = {
+        titulo: titulo,
+        sinopse: sinopse
+    }
+    //acrescenta filmes ao vetor de filmes
+    filmes.push(filme);
+    res.json(filmes);
+})
+
 
 app.listen(3000, () => console.log('servidor na escuta'));
