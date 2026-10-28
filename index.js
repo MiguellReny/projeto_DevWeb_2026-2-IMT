@@ -1,7 +1,9 @@
 const express = require ('express');
+const cors = require ('cors')
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 let filmes = [
     {
@@ -12,6 +14,10 @@ let filmes = [
         titulo: "O diabo veste prada",
         sinopse: "Secretaria da maior referencia de moda de nova york, é humilhada pela chefe constantemente na escala 7x0 e recorre aos seus direitos trabalhistas",
     },
+    {
+        titulo: "67",
+        sinopse: "O primeiro farmador de aura"
+    }
 ]
 
 //GET - http://localhost:3000/oi

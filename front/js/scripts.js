@@ -6,5 +6,45 @@ async function obterFilmes() {
     //console.log("teste");
     const URLCompleta = `${protocolo}${baseURL}${filmesEndpoint}`
     const filmes = (await axios.get(URLCompleta)).data
-    console.log(filmes)
+    let tabela = document.querySelector('.filmes');
+    let corpoTabela = tabela.getElementsByTagName('tbody')[0];
+    for (let filme of filmes){
+        let linha = corpoTabela.insertRow(0)
+        let celulaTitulo = linha.insertCell(0)
+        let celulaSinopse = linha.insertCell(1)
+        celulaTitulo.innerHTML = filme.titulo
+        celulaSinopse.innerHTML = filme.sinopse
+
+    }
+    
+}
+
+async function cadastrarFilme() {
+    //URL 
+    const URLCompleta = `${protocolo}${baseURL}${filmesEndpoint}`
+    //se posiciona nos inputs
+    let tituloInput = document.querySelector('#tituloInput')
+    let sinopseInput = document.querySelector('#sinopseInput')
+    //pega os valores que o usuario digitou
+    let titulo = tituloInput.value
+    let sinopse = sinopseInput.value
+    //limpa as caixinhas
+    tituloInput.value = " "
+    sinopseInput.value = " "
+    //faz a resquisição: envia o novo e recebe a coleção atualizada
+    const filmes = (await axios.post(URLCompleta, {titulo, sinopse})).data
+    //limpa a tabela
+    let tabela = document.querySelector('.filmes')
+    let corpoTabela = tabela.getElementsByTagName('tvody')[0]
+    corpoTabela.innerHTML = " "
+    //remonta a tabela
+    for (let filme of filmes){
+        let linha = corpoTabela.insertRow(0)
+        let celulaTitulo = linha.insertCell(0)
+        let celulaSinopse = linha.insertCell(1)
+        celulaTitulo.innerHTML = filme.titulo
+        celulaSinopse.innerHTML = filme.sinopse
+
+    }
+
 }

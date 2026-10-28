@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MiguellReny/project_DevWeb_2026-2-IMT#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.3.0"
   },
   "devDependencies": {
