@@ -1,9 +1,20 @@
+
 const express = require ('express');
 const cors = require ('cors')
+const mongoose = require('mongoose')
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+const Filme = mongoose.model ("Filme", mongoose.Schema({
+    titulo: {type: String},
+    sinopse: {type: String}
+}))
+
+async function conectarAoMongo() {
+    await mongoose.connect(`mongodb+srv://miguelmartir99_db_user:zzYC9Ba94dI1y6Wl@cluster0.rj40cy4.mongodb.net`)
+}
 
 let filmes = [
     {
@@ -46,4 +57,12 @@ app.post ('/filmes', (req, res) => {
 })
 
 
-app.listen(3000, () => console.log('servidor na escuta'));
+app.listen(3000, async() => {
+    try {
+        await conectarAoMongo()
+        console.log('servidor na escuta e banco conectado')
+    }
+    catch (e) {
+        console.log('erro: ', e)
+    }
+})
